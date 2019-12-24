@@ -137,7 +137,7 @@
                 "title": "Как добраться",
                 "description": "Выходите из метро «Чистые пруды» ...",
                 "phone": "+7999999999",
-                "image": "https://...png", (миниатура 100х100, обязательно по https),
+                "image": "https://...png", (детальное изображение, обязательно по https),
                 "time_work": {
                   "rondo_color": "red | yellow | green",
                   "value": "открыто до 20:00",
