@@ -9,7 +9,6 @@
 * `Authorization`: token-пользователя, который генерируется при регистрации (кроме запроса на регистрацию)
 * `X-Timezone: -5` (для определения таймзоны я использую скрипт https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset)
 
-Для всех дат используется формат SQL: `YYYY-MM-DD`.
 ## Все ошибки
 {
   "error": {
