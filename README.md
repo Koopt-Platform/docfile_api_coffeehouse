@@ -169,7 +169,7 @@
           ]
       }
 ### Товары
-    GET /api/v1/products
+    GET /api/v1/categories/:category_id/products
       AUTH yes
       PARAMS no
       RESPONSE
@@ -219,6 +219,7 @@
                     "title": "Выберите вкус зерна | Выберите молоко",
                     "items": [
                         {
+                            "id": 1,
                             "name": "Нейтральный",
                             "price": 0,
                             "images": [
@@ -240,8 +241,10 @@
                                     "value": false
                                 }
                             ],
+                            "max_quantity": 2,
                             "items": [
                                 {
+                                    "id": 1,
                                     "name": "Овсяное 2%",
                                     "price": 50,
                                     "images": [
@@ -256,3 +259,57 @@
               }
           ]
       }      
+### Добавление в Корзину
+
+    POST /api/v1/baskets
+        AUTH no
+        PARAMS (POST body)
+          {
+            "product_id": 1,
+            "price": 300,
+            "quantity": 1,
+            "sku": {
+                "id": 1,
+                "?name": "Нейтральный"
+            },
+            "more_products": [
+                {
+                    "id": 1
+                    "?name": "Сахар",
+                    "price": 50
+                    "quantity": 1
+                }
+            ],
+            "sum_price": 350
+          }
+        RESPONSE (возвращает Корзину)
+        
+### Корзина
+    GET /api/v1/baskets
+      AUTH yes
+      PARAMS no
+      RESPONSE
+      {
+          "success": true,
+          "payload":  [
+              {
+                "product_id": 1,
+                "name": "Большой капучино",
+                "price": 350,
+                "quantity": 1,
+                "image": "https://..../image.png",
+                "sku": {
+                    "id": 1,
+                    "name": "Нейтральный"
+                },
+                "more_products": [
+                    {
+                        "id": 1
+                        "name": "Доп. экспрессо",
+                        "price": 50
+                        "quantity": 1
+                    }
+                ]
+              }
+          ]
+      }  
