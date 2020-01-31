@@ -148,3 +148,77 @@
           ]
 
       }
+
+## Магазин
+### Категории
+    GET /api/v1/categoryes
+      AUTH yes
+      PARAMS no
+      RESPONSE
+      {
+          "success": true,
+          "payload":  [
+              {
+                "id": 1,
+                "name": "Все напитки"
+              },
+              {
+                "id": 2,
+                "name": "Черный кофе"
+              }
+          ]
+      }
+### Товары
+    GET /api/v1/products
+      AUTH yes
+      PARAMS no
+      RESPONSE
+      {
+          "success": true,
+          "payload":  [
+              {
+                "id": 1,
+                "name": "Большой капучино",
+                "description": "Двойная порция эспрессо и молоко: насыщенный кофейный вкус c ...",
+                "price": 350,
+                "image": "https://..../image.png",
+                "status": [
+                    {
+                        color: "#F8B878",
+                        velue: "Новинка"
+                    },
+                    {
+                        color: "red",
+                        velue: "Хит продаж"
+                    }
+                ]
+              }
+          ]
+      }  
+### Товар
+    GET /api/v1/product/:id
+      AUTH yes
+      PARAMS no
+      RESPONSE
+      {
+          "success": true,
+          "payload":  [
+              {
+                "id": 1,
+                "name": "Большой капучино",
+                "description": "Двойная порция эспрессо и молоко: насыщенный кофейный вкус c ...",
+                "price": 350,
+                "image": "https://..../image.png",
+                "status": [
+                    {
+                        color: "#F8B878",
+                        velue: "Новинка"
+                    },
+                    {
+                        color: "red",
+                        velue: "Хит продаж"
+                    },
+                ]
+              }
+          ]
+      }      
