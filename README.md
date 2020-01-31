@@ -213,12 +213,46 @@
                     {
                         color: "#F8B878",
                         velue: "Новинка"
-                    },
-                    {
-                        color: "red",
-                        velue: "Хит продаж"
-                    },
-                ]
+                    }
+                ],
+                "sku": {
+                    "title": "Выберите вкус зерна | Выберите молоко",
+                    "items": [
+                        {
+                            "name": "Нейтральный",
+                            "price": 0,
+                            "images": [
+                                "https:.../1.png",
+                                "https:.../2.png",
+                            ]
+                        }
+                    ]
+                },
+                "more_products": {
+                    "title": "Добавить в напиток",
+                    "products": [
+                        {
+                            "title": "Выбрать молоко",
+                            "price": 50,
+                            "options": [
+                                {
+                                    "name": "Подогреть",
+                                    "value": false
+                                }
+                            ],
+                            "items": [
+                                {
+                                    "name": "Овсяное 2%",
+                                    "price": 50,
+                                    "images": [
+                                        "https:.../1.png",
+                                        "https:.../2.png",
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
               }
           ]
       }      
