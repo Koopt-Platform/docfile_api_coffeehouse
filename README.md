@@ -185,15 +185,17 @@
                 "name": "Большой капучино",
                 "description": "Двойная порция эспрессо и молоко: насыщенный кофейный вкус c ...",
                 "price": 350,
-                "image": "https://..../image.png",
+                "image": [
+                    "https://..../image.png"
+                ],
                 "status": [
                     {
                         color: "#F8B878",
-                        velue: "Новинка"
+                        value: "Новинка"
                     },
                     {
                         color: "red",
-                        velue: "Хит продаж"
+                        value: "Хит продаж"
                     }
                 ]
               }
@@ -206,13 +208,14 @@
       RESPONSE
       {
           "success": true,
-          "payload":  [
-              {
+          "payload":  {
                 "id": 1,
                 "name": "Большой капучино",
                 "description": "Двойная порция эспрессо и молоко: насыщенный кофейный вкус c ...",
                 "price": 350,
-                "image": "https://..../image.png",
+                "image": [
+                    "https://..../image.png"
+                ],
                 "status": [
                     {
                         color: "#F8B878",
@@ -239,6 +242,7 @@
                         {
                             "title": "Выбрать молоко",
                             "price": 50,
+                            "image": "https://..",
                             "options": [
                                 {
                                     "name": "Подогреть",
@@ -260,8 +264,8 @@
                         }
                     ]
                 }
-              }
-          ]
+         }
+          
       }      
 ### Добавление в Корзину
 
