@@ -153,29 +153,35 @@
 ### Категории
     GET /api/v1/categoryes
       AUTH yes
-      PARAMS no
+      PARAMS (QUERY STRING)
+        cafe_id=1
       RESPONSE
       {
           "success": true,
           "payload":  [
               {
                 "id": 1,
-                "name": "Все напитки"
+                "name": "Все напитки",
+                "in_search": false (чтоб я мог исключить из поиска данный каталог, см. Макет Поиска по напиткам)
               },
               {
                 "id": 2,
-                "name": "Недавние напитки"
+                "name": "Недавние напитки", (содержит ранее приобретенные напитки, уникален для каждого пользователя)
+                "in_search": false
               },
               {
                 "id": 3,
-                "name": "Черный кофе"
+                "name": "Черный кофе",
+                "in_search": true
               }
           ]
       }
 ### Товары
     GET /api/v1/categories/:category_id/products
       AUTH yes
-      PARAMS no
+      PARAMS (QUERY STRING)
+        cafe_id=1
+        search="Кофе"
       RESPONSE
       {
           "success": true,
@@ -188,7 +194,7 @@
                 "image": [
                     "https://..../image.png"
                 ],
-                "status": [
+                "label": [
                     {
                         color: "#F8B878",
                         value: "Новинка"
@@ -204,7 +210,8 @@
 ### Товар
     GET /api/v1/product/:id
       AUTH yes
-      PARAMS no
+      PARAMS (QUERY STRING)
+        cafe_id=1
       RESPONSE
       {
           "success": true,
@@ -216,20 +223,20 @@
                 "image": [
                     "https://..../image.png"
                 ],
-                "status": [
+                "label": [
                     {
                         color: "#F8B878",
                         velue: "Новинка"
                     }
                 ],
-                "sku": {
+                "offer": {
                     "title": "Выберите вкус зерна | Выберите молоко",
                     "items": [
                         {
                             "id": 1,
                             "name": "Нейтральный",
                             "price": 0,
-                            "active": true,
+                            "active": true, (активным может быть только у одного из списка)
                             "images": [
                                 "https:.../1.png",
                                 "https:.../2.png",
@@ -271,13 +278,13 @@
 ### Добавление в Корзину
 
     POST /api/v1/baskets
-        AUTH no
+        AUTH yes
         PARAMS (POST body)
           {
             "product_id": 1,
             "price": 300,
             "quantity": 1,
-            "sku": {
+            "offer": {
                 "id": 1,
                 "?name": "Нейтральный"
             },
@@ -307,7 +314,7 @@
                 "price": 350,
                 "quantity": 1,
                 "image": "https://..../image.png",
-                "sku": {
+                "offer": {
                     "id": 1,
                     "name": "Нейтральный"
                 },
