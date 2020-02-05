@@ -282,6 +282,7 @@
         AUTH yes
         PARAMS (POST body)
           {
+            "cafe_id": 1,
             "product_id": 1,
             "price": 300,
             "quantity": 1,
@@ -304,7 +305,8 @@
 ### Корзина
     GET /api/v1/baskets
       AUTH yes
-      PARAMS no
+      PARAMS (QUERY STRING)
+        cafe_id=1
       RESPONSE
       {
           "success": true,
