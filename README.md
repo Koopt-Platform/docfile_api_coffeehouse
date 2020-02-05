@@ -229,6 +229,7 @@
                             "id": 1,
                             "name": "Нейтральный",
                             "price": 0,
+                            "active": true,
                             "images": [
                                 "https:.../1.png",
                                 "https:.../2.png",
