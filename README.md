@@ -276,6 +276,7 @@
           
       }      
 ### Добавление в Корзину
+так же требуется изменение кол-ва, Удаление
 
     POST /api/v1/baskets
         AUTH yes
@@ -309,9 +310,10 @@
           "success": true,
           "payload":  [
               {
+                "id": 112,
                 "product_id": 1,
                 "name": "Большой капучино",
-                "price": 350,
+                "price": 350, (с учетом всех доп товаров)
                 "quantity": 1,
                 "image": "https://..../image.png",
                 "offer": {
