@@ -63,7 +63,8 @@
         "email": "ivanivanov@mail.com",
         "cards": [
             {
-                "name": "Visa *2878",
+                "number": "*2878",
+                "type": "Visa",
                 "image": "https://...png" (иконка типа карты (Apay, Gpay, Visa, Mastercard и т.п.)
                 
             }
@@ -125,9 +126,49 @@
       "success": true,
       "payload": {}
     }
-    
-### Привязка / Отвязка карт
-Пока не описываю
+      
+## Карты оплаты
+Скорее всего этот функционал будет реализован через SDK в обход сервера, 
+поэтому все что касается карт можешь пропускать
+### Список карт
+    GET /api/v1/user/cards
+    AUTH no
+    PARAMS 
+    RESPONSE
+    {
+      "success": true,
+      "payload": [
+        {
+            "id": 1,
+            "number": "*2878",
+            "type": "Visa",
+            "image": "https://sun9-20.userapi.com/c854320/v854320145/15e9ce/kV_sZx0aaFE.jpg" (иконка типа карты (Apay, Gpay, Visa, Mastercard и т.п.)
+        }
+      ]
+    }
+### Привязка карты
+    POST /api/v1/user/card
+    AUTH no
+    PARAMS (POST body)
+      {
+          "number": "4111111111111111",
+          "cvv": "123",
+          "expDate": "10/20",
+          "name": "IVAN IVANOV"
+      }
+    RESPONSE
+    {
+      "success": true
+    }
+### Удаление карты
+    DELETE /api/v1/user/card/:card_id
+    AUTH no
+    PARAMS 
+    RESPONSE
+    {
+      "success": true
+    }
+
 
 ## Кофейни
 ### Список кофейн
@@ -524,6 +565,5 @@
         RESPONSE 
         {
           "success": true
-        }         
- 
-
+        }  
+  
