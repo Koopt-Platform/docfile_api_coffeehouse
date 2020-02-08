@@ -301,7 +301,20 @@
             "sum_price": 350
           }
         RESPONSE (возвращает Корзину)
-        
+### Изменение кол-ва в Корзине
+    PUT /api/v1/baskets/:id
+        AUTH yes
+        PARAMS (POST body)
+          {
+            "quantity": 1
+          }
+        RESPONSE (возвращает Корзину)
+###  Удаление из корзины
+    DELETE /api/v1/baskets/:id
+        AUTH yes
+        PARAMS (POST body)
+          { }
+        RESPONSE (возвращает Корзину)
 ### Корзина
     GET /api/v1/baskets
       AUTH yes
