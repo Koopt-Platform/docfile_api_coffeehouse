@@ -70,6 +70,20 @@
         ]
       }
     }
+### Изменние пользовательских данных
+    PUT /api/v1/user
+    AUTH no
+    PARAMS (POST body)
+      {
+          "name": "Ivangovnov",
+          "email": "uru@ru.ru",
+          "phone": "88005553535"
+      }
+    RESPONSE
+    {
+      "success": true,
+      "payload": {}
+    }
 ### Изменние телефона
 После изменения телефона уходит СМС с кодом подтвердени
 
@@ -78,20 +92,6 @@
     PARAMS (POST body)
       {
           "phone": "+79999999999"
-      }
-    RESPONSE
-    {
-      "success": true,
-      "payload": {}
-    }
-### Изменние емайла
-После изменения email должна прийти ссылка с подтверждением на почту
-
-    POST /api/v1/user/email
-    AUTH no
-    PARAMS (POST body)
-      {
-          "email": "uru@ru.ru"
       }
     RESPONSE
     {
@@ -111,6 +111,21 @@
     {
       "success": true,
     }
+### Изменние емайла
+После изменения email должна прийти ссылка с подтверждением на почту
+
+    POST /api/v1/user/email
+    AUTH no
+    PARAMS (POST body)
+      {
+          "email": "uru@ru.ru"
+      }
+    RESPONSE
+    {
+      "success": true,
+      "payload": {}
+    }
+    
 ### Привязка / Отвязка карт
 Пока не описываю
 
