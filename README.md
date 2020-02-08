@@ -59,9 +59,60 @@
       "payload": {
         "id": 1,
         "name": "Ivan Ivanov",
-        "phone": "+79999999999"
+        "phone": "+7 999 999-99-99",
+        "email": "ivanivanov@mail.com",
+        "cards": [
+            {
+                "name": "Visa *2878",
+                "image": "https://...png" (иконка типа карты (Apay, Gpay, Visa, Mastercard и т.п.)
+                
+            }
+        ]
       }
     }
+### Изменние телефона
+После изменения телефона уходит СМС с кодом подтвердени
+
+    POST /api/v1/user/phone
+    AUTH no
+    PARAMS (POST body)
+      {
+          "phone": "+79999999999"
+      }
+    RESPONSE
+    {
+      "success": true,
+      "payload": {}
+    }
+### Изменние емайла
+После изменения email должна прийти ссылка с подтверждением на почту
+
+    POST /api/v1/user/email
+    AUTH no
+    PARAMS (POST body)
+      {
+          "email": "uru@ru.ru"
+      }
+    RESPONSE
+    {
+      "success": true,
+      "payload": {}
+    }
+
+### Подтверждение изменения телефона
+    POST /api/v1/user/auth
+    AUTH no
+    PARAMS (POST body)
+      {
+        "phone": "+79999999999",
+        "code": "0000"
+      }
+    RESPONSE
+    {
+      "success": true,
+    }
+### Привязка / Отвязка карт
+Пока не описываю
 
 ## Кофейни
 ### Список кофейн
@@ -385,19 +436,17 @@
               }
           ]
         }  
-### Выполняющийся заказ
-    POST /api/v1/running_order
+### Выполняющиеся заказы
+    GET /api/v1/orders/running
         AUTH yes
-        PARAMS (POST body)
-          {
-            "cafe_id": 1,
-          }
+        PARAMS (QUERY STRING)
         RESPONSE 
         {
           "success": true,
           "payload":  [
               {
                 "order_id": 228,
+                 "cafe_id": 1
                 "ready_time": Date (мб в timestamp??)
               }
           ]
@@ -405,8 +454,50 @@
 ### Уведомление о готовом заказе
 Буду прикручивать firebase, опишу позднее
 
+       
+### Прошлые заказы
+    GET /api/v1/orders
+        AUTH yes
+        PARAMS (QUERY STRING)
+        RESPONSE 
+        {
+          "success": true,
+          "payload":  [
+              {
+                "order_id": 228,
+                "order_date": Date (Дата заказа, мб в timestamp),
+                "price": 500,
+                "coffehouses": {
+                    "id": 1,
+                    "name": "Патрики",
+                },
+                "basket": [@Корзина] (см. экземляр корзины),
+                "receipt": { //Фиксальный чек
+                    "inn": "022702672955",
+                    "ogrn": "305861925900019",
+                    "order_id": 228,
+                    "date": Date, (Дата выдачи)
+                    "barista": "Габдуллин Н. В.",
+                    "file": "https://.../file.pdf" (файл чека в pdf)
+                }
+              }
+          ]
+        } 
+### Повторить заказ
+    POST /api/v1/orders/:order_id/repeat
+        AUTH yes
+        PARAMS (POST body)
+          {
+            "cafe_id": 1,
+            "order_id": 228,
+          }
+        RESPONSE 
+        {
+          "success": true
+        } 
+        
 ### Отзыв о заказе
-    POST /api/v1/order/:order_id/review
+    POST /api/v1/orders/:order_id/review
         AUTH yes
         PARAMS (POST body)
           {
@@ -418,4 +509,6 @@
         RESPONSE 
         {
           "success": true
-        } 
+        }         
+ 
+
