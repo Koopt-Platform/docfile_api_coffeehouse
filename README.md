@@ -91,7 +91,8 @@
             },
             "preview_image": "https://...png", (миниатура 100х100, обязательно по https) 
             "distance": 1.221, (расстояние до кофейни в км.)
-            "active": true (обслуживает ли в данный момент кофейня)
+            "active": true, (обслуживает ли в данный момент кофейня)
+            "order_step": [date] (4 даты с шагом в 5 минут, начиная с 10 мин. смотрим макет Оформление заказа, мб в timestamp)
           }
         ]
       }
@@ -276,8 +277,6 @@
           
       }      
 ### Добавление в Корзину
-так же требуется изменение кол-ва, Удаление
-
     POST /api/v1/baskets
         AUTH yes
         PARAMS (POST body)
@@ -346,3 +345,77 @@
               }
           ]
       }  
+### Дополнить заказ товарами при оформлении заказа
+    GET /api/v1/additional_sales
+      AUTH yes
+      PARAMS (QUERY STRING)
+        cafe_id=1
+      RESPONSE
+      {
+          "success": true,
+          "payload":  [
+              {
+                "id": 1,
+                "name": "Морковный кекс",
+                "price": 250, 
+                "quantity": 1,
+                "image": "https://..../image.png",
+              }
+          ]
+      }  
+### Оформление заказа
+Корзина прикрепляется автоматом, оформление у нас только после оплаты, пока этот момент я не описываю
+
+    POST /api/v1/order
+        AUTH yes
+        PARAMS (POST body)
+          {
+            "cafe_id": 1,
+            "takeaway": true, (упаковать, возьмет с собой)
+            "ready_time": "Дата",(мб в timestamp??) (на макете "Забарать через", давай добавим в coffehouses, поле order_step с 4-мя датами исходя из времени работы)
+            "comment": "Cъешь еще этих мягких французских булок да выпей чаю"
+          }
+        RESPONSE 
+        {
+          "success": true,
+          "payload":  [
+              {
+                "order_id": 228,
+                "ready_time": Date (мб в timestamp??)
+              }
+          ]
+        }  
+### Выполняющийся заказ
+    POST /api/v1/running_order
+        AUTH yes
+        PARAMS (POST body)
+          {
+            "cafe_id": 1,
+          }
+        RESPONSE 
+        {
+          "success": true,
+          "payload":  [
+              {
+                "order_id": 228,
+                "ready_time": Date (мб в timestamp??)
+              }
+          ]
+        } 
+### Уведомление о готовом заказе
+Буду прикручивать firebase, опишу позднее
+
+### Отзыв о заказе
+    POST /api/v1/order/:order_id/review
+        AUTH yes
+        PARAMS (POST body)
+          {
+            "cafe_id": 1,
+            "order_id": 228,
+            "type": "bad | good", (Для сортировки по эмоциональной окрашенности отзывов)
+            "text": "Вы говно!",
+          }
+        RESPONSE 
+        {
+          "success": true
+        } 
