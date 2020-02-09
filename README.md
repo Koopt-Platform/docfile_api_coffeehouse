@@ -512,7 +512,7 @@
 Буду прикручивать firebase, опишу позднее
 
        
-### Прошлые заказы
+### Оформленные заказы
     GET /api/v1/orders
         AUTH yes
         PARAMS (QUERY STRING)
@@ -521,6 +521,21 @@
           "success": true,
           "payload":  [
               {
+                "order_id": 228,
+                "price": 500,
+                "basket": [@Корзина] (см. экземляр корзины),
+              }
+          ]
+        } 
+### Заказ
+    GET /api/v1/orders/:order_id
+        AUTH yes
+        PARAMS (QUERY STRING)
+        RESPONSE 
+        {
+          "success": true,
+          "payload": 
+          {
                 "order_id": 228,
                 "order_date": Date (Дата заказа, мб в timestamp),
                 "price": 500,
@@ -537,8 +552,8 @@
                     "barista": "Габдуллин Н. В.",
                     "file": "https://.../file.pdf" (файл чека в pdf)
                 }
-              }
-          ]
+          }
+          
         } 
 ### Повторить заказ
     POST /api/v1/orders/:order_id/repeat
