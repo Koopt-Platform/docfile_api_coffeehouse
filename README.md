@@ -356,7 +356,7 @@
                 "addons": [
                     {
                         id: 1,
-                        name: "Выберите молоко", //группа товаров
+                        title: "Выберите молоко", //группа адонов
                         image: "http://kolomna.galaxybowling.ru/smarty/timthumb.php?src=pics/subrestaurant/225.png&w=163&h=163",
                         price: 100, //Не обязательный параметр, Цена товара по умолчанию, у которого установлен active, можешь ее не вычислять если не хочешь
                         items: [
