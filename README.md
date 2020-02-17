@@ -353,7 +353,7 @@
                         }
                     ]
                 },
-                "addons_title" : "Добавить в напиток",
+                "title_type_prouduct" : "Добавить в напиток",
                 "addons": [
                     {
                         id: 1,
