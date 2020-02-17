@@ -338,7 +338,7 @@
                     }
                 ],
                 "offer": {
-                    "title": "Выберите вкус зерна | Выберите молоко",
+                    "title": "Выберите вкус зерна",
                     "items": [
                         {
                             "id": 1,
@@ -352,34 +352,53 @@
                         }
                     ]
                 },
-                "more_products": {
-                    "title": "Добавить в напиток",
-                    "products": [
-                        {
-                            "title": "Выбрать молоко",
-                            "price": 50,
-                            "image": "https://..",
-                            "options": [
-                                {
-                                    "name": "Подогреть",
-                                    "value": false
-                                }
-                            ],
-                            "max_quantity": 2,
-                            "items": [
-                                {
-                                    "id": 1,
-                                    "name": "Овсяное 2%",
-                                    "price": 50,
-                                    "images": [
-                                        "https:.../1.png",
-                                        "https:.../2.png",
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
+                "addons_title" : "Добавить в напиток",
+                "addons": [
+                    {
+                        id: 1,
+                        name: "Выберите молоко", //группа товаров
+                        image: "http://kolomna.galaxybowling.ru/smarty/timthumb.php?src=pics/subrestaurant/225.png&w=163&h=163",
+                        price: 100, //Не обязательный параметр, Цена товара по умолчанию, у которого установлен active, можешь ее не вычислять если не хочешь
+                        items: [
+                            {
+                                id: 1,
+                                name: "Овсяное 2%",
+                                max_quantity: 1,
+                                price: 100,
+                                active: false,
+                                images: [],
+                                quantity: 0, //необязательный, но если будешь передавать, то можно будет влиять на содержимое товара по умолчанию
+                                options: [
+                                    {
+                                        name: "Подогреть",
+                                        value: false
+                                    }
+                                ],
+                            },
+                            {
+                                id: 2,
+                                name: "Коровье 3.9%",
+                                max_quantity: 2,
+                                price: 0,
+                                active: true,
+                                options: [],
+                                quantity: 0,
+                                images: ["https://velo-port.ru/img/icons8-no_gluten 1.png", "https://velo-port.ru/img/icons8-no_gluten 1.png"],
+                            },
+                            {
+                                id: 3,
+                                name: "Козье 2.2%",
+                                max_quantity: 2,
+                                price: 75,
+                                active: false,
+                                options: [],
+                                quantity: 0,
+                                images: [],
+                            },
+                        ]
+                      }    
+                ]
+                
          }
           
       }      
