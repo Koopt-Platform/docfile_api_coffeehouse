@@ -61,6 +61,7 @@
         "name": "Ivan Ivanov",
         "phone": "+7 999 999-99-99",
         "email": "ivanivanov@mail.com",
+        "mail_confirmed": true //Почта подтверждена
         "cards": [
             {
                 "number": "*2878",
