@@ -579,7 +579,7 @@
           {
             "cafe_id": 1,
             "order_id": 228,
-            "text": "Вы говно!",
+            "text": "text text",
           }
         RESPONSE 
         {
