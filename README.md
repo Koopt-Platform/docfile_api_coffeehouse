@@ -500,8 +500,7 @@
           {
             "cafe_id": 1,
             "takeaway": true, (возьмет с собой)
-            "ready_date": "Дата в **timestamp**", 
-            //давай добавим в coffehouses, поле order_step с 4-мя датами исходя из времени работы)
+            "ready_date": timestamp, //Дата к которому времени должен быть готов заказ
             "comment": "Cъешь еще этих мягких французских булок да выпей чаю"
           }
         RESPONSE 
@@ -514,35 +513,32 @@
               }
           ]
         }  
-### Выполняющиеся заказы
-    GET /api/v1/orders/running
-        AUTH yes
-        PARAMS (QUERY STRING)
-        RESPONSE 
-        {
-          "success": true,
-          "payload":  [
-              {
-                "order_id": 228,
-                 "cafe_id": 1
-                "ready_time": Date (мб в timestamp??)
-              }
-          ]
-        } 
-### Уведомление о готовом заказе
-Буду прикручивать firebase, опишу позднее
 
+### Уведомление о готовом заказе
+
+Как только в заказе ready_date стала равна текущему времени, статус заказа должен измениться
+и должен уйти запрос в firebase
+
+Буду прикручивать firebase, опишу позднее
        
 ### Оформленные заказы
+Реализовывай через статусы как корзину ("Готовится/Отменен/Готов")
+
+
     GET /api/v1/orders
         AUTH yes
-        PARAMS (QUERY STRING)
+        PARAMS 
+        {
+          status: "closed"
+        }
         RESPONSE 
         {
           "success": true,
           "payload":  [
               {
                 "order_id": 228,
+                "create_date": timestamp // дата создания
+                "ready_date": timestamp, //Дата к которому времени должен быть готов заказ
                 "price": 500,
                 "basket": [@Корзина] (см. экземляр корзины),
               }
