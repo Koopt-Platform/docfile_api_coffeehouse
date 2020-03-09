@@ -549,8 +549,10 @@
           "payload": 
           {
                 "order_id": 228,
-                "order_date": Date (Дата заказа, мб в timestamp),
+                "create_date": timestamp // дата создания
+                "ready_date": timestamp, //Дата к которому времени должен быть готов заказ
                 "price": 500,
+                "status": "done",
                 "coffehouses": {
                     "id": 1,
                     "name": "Патрики",
