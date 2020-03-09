@@ -552,6 +552,7 @@
                 "create_date": timestamp // дата создания
                 "ready_date": timestamp, //Дата к которому времени должен быть готов заказ
                 "price": 500,
+                "takeaway": true, //заберет с собой
                 "status": "done",
                 "coffehouses": {
                     "id": 1,
