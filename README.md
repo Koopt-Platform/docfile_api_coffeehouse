@@ -61,7 +61,8 @@
         "name": "Ivan Ivanov",
         "phone": "+7 999 999-99-99",
         "email": "ivanivanov@mail.com",
-        "mail_confirmed": true //Почта подтверждена
+        "mail_confirmed": true, //Почта подтверждена
+        "token_notification": hash (Пришлю тебе, как только пользователь разрешит получение Уведомлений)
         "cards": [
             {
                 "number": "*2878",
