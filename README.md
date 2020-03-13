@@ -62,7 +62,7 @@
         "phone": "+7 999 999-99-99",
         "email": "ivanivanov@mail.com",
         "mail_confirmed": true, //Почта подтверждена
-        "token_notification": hash (Пришлю тебе, как только пользователь разрешит получение Уведомлений)
+        "token_notification": String (Пришлю тебе, как только пользователь разрешит получение Уведомлений)
         "cards": [
             {
                 "number": "*2878",
@@ -80,7 +80,7 @@
       {
           "name": "Ivangovnov",
           "email": "uru@ru.ru",
-          "phone": "88005553535"
+          ....
       }
     RESPONSE
     {
