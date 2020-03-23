@@ -521,12 +521,36 @@
           ]
         }  
 
-### Уведомление о готовом заказе
+### Уведомления
 
-Как только в заказе ready_date стала равна текущему времени, статус заказа должен измениться
-и должен уйти запрос в firebase
+Как только изменился статус заказа, должно уйти уведомление
 
-Буду прикручивать firebase, опишу позднее
+     POST https://fcm.googleapis.com/fcm/send
+        HEADERS 
+        {
+            "Authorization": "key=...", (Firebase/Cloud Messaging/Ключ сервера)
+            "Content-Type": "application/json"
+        }
+        PARAMS (POST body)
+          {
+            "to" : @User.token_notification,
+            "notification" : {
+                "body" : "Ваш заказ готов и ожидает вас на барной стойке",
+                "title" : "Даблби. @Cafe.name",
+                "content_available" : true,
+                "sound": 1,
+                "priority" : "high",
+                "order_id": 411
+            },
+            "data" : {
+                "body" : "Ваш заказ готов и ожидает вас на барной стойке",
+                "title" : "Даблби. @Cafe.name",
+                "content_available" : true,
+                "sound": 1,
+                "priority" : "high",
+                "order_id": 411
+            }
+        }
        
 ### Оформленные заказы
 Реализовывай через статусы как корзину ("Готовится/Отменен/Готов")
