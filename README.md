@@ -528,7 +528,7 @@
      POST https://fcm.googleapis.com/fcm/send
         HEADERS 
         {
-            "Authorization": "key=...", (Firebase/Cloud Messaging/Ключ сервера)
+            "Authorization": "key=...", (Firebase/Settings/Cloud Messaging/Ключ сервера)
             "Content-Type": "application/json"
         }
         PARAMS (POST body)
