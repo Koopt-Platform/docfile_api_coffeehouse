@@ -536,7 +536,7 @@
             "to" : @User.token_notification,
             "notification" : {
                 "body" : "Ваш заказ готов и ожидает вас на барной стойке",
-                "title" : "Даблби. @Cafe.name",
+                "title" : "@Cafe.name",
                 "content_available" : true,
                 "sound": 1,
                 "priority" : "high",
@@ -544,7 +544,7 @@
             },
             "data" : {
                 "body" : "Ваш заказ готов и ожидает вас на барной стойке",
-                "title" : "Даблби. @Cafe.name",
+                "title" : "@Cafe.name",
                 "content_available" : true,
                 "sound": 1,
                 "priority" : "high",
